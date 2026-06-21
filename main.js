@@ -1,10 +1,15 @@
-let btn = document.getElementById('btn'); 
+document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById('btn');
 
-btn.addEventListener('click', function() {
-    let billAmount = (document.getElementById('billAmount').value);
-    let tipPercentage =(document.getElementById('tipPercentage').value);
+    btn.addEventListener('click', function () {
 
-    let tipAmount = document.getElementById('tipAmount').value = (billAmount * tipPercentage / 100);
-    let totalBill = document.getElementById('totalBill').value = (parseFloat(billAmount) + parseFloat(tipAmount));
+        const billAmount = Number(document.getElementById('billAmount').value);
+        const tipPercentage = Number(document.getElementById('tipPercentage').value);
 
-})
+        const tipAmount = (billAmount * tipPercentage) / 100;
+        const totalBill = billAmount + tipAmount;
+
+        document.getElementById('tipAmount').value = tipAmount;
+        document.getElementById('totalBill').value = totalBill;
+    });
+});
